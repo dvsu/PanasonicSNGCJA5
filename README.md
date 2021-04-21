@@ -18,7 +18,7 @@ Please refer to sensor specification sheet and table below for wiring guide.
 
 | Sensor Connector Pin | Symbol | Recommended Voltage | Description | RPi Physical Pin | RPi I/O |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| Pin 1 | TX | 3.3V | UART TX *(unused if using I2C protocol)* |  | |
+| Pin 1 | TX | 3.3V | UART TX *(unused if using I2C protocol)* | *not connected* | |
 | Pin 2 | SDA | 3.3V | I2C Data | Pin 3 | GPIO2 (I2C1 SDA) |
 | Pin 3 | SCL | 3.3V | I2C Clock | Pin 5 | GPIO3 (I2C1 SCL) |
 | Pin 4 | GND | 0V | Ground | Pin 6 | Ground |
@@ -84,4 +84,5 @@ while True:
 
 ### **Limitation**
 <br>
+
 This driver only works using **I2C** protocol
