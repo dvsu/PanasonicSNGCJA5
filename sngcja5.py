@@ -54,7 +54,7 @@ class SNGCJA5:
         self.__mass_density_addresses = {pm_type: MASS_DENSITY_BLOCK_SIZE*order 
                                             for order, pm_type in enumerate(MASS_DENSITY_PM_TYPES)}
 
-        self.__particle_count_addresses = {pm_type: (PARTICLE_COUNT_BLOCK_SIZE*order) + ADDRESS_PARTICLE_COUNT_HEAD 
+        self.__particle_count_addresses = {pm_type: PARTICLE_COUNT_BLOCK_SIZE*order
                                             for order, pm_type in enumerate(PARTICLE_COUNT_PM_TYPES)}
 
         self.__measurement_data = {
@@ -88,7 +88,7 @@ class SNGCJA5:
         sleep(1) 
 
         try:
-            data = self.__i2c_bus.read_i2c_block_data(self.__i2c_address, DATA_LENGTH_HEAD, TOTAL_DATA_LENGTH)
+            data = self.i2c_bus.read_i2c_block_data(self.i2c_address, DATA_LENGTH_HEAD, TOTAL_DATA_LENGTH)
 
             mass_density_data = self.get_mass_density_data(data[ADDRESS_MASS_DENSITY_HEAD:ADDRESS_MASS_DENSITY_TAIL+1])
             particle_count_data = self.get_particle_count_data(data[ADDRESS_PARTICLE_COUNT_HEAD:ADDRESS_PARTICLE_COUNT_TAIL+1])
