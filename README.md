@@ -1,20 +1,14 @@
 # Panasonic-SN-GCJA5
-<br>
 
-### **Introduction**
-<br>
+## **Introduction**
 
 Python driver for Panasonic SN-GCJA5 particulate matter (PM) sensor. Tested on Raspberry Pi Zero/Zero W/3B+/4B<br>
-<br>
 
-
-### **Wiring**
-<br>
+## **Wiring**
 
 Panasonic SN-GCJA5 uses `JST SM05B-GHS-TB(LF)(SN)` connector and requires 3.3V and 5V for direct wiring. 
 Fortunately, Raspberry Pi GPIOs are 3.3V by default and also supports dual power supply voltages, 3.3V and 5V. 
-Please refer to sensor specification sheet and table below for wiring guide.
-<br>
+Please refer to sensor specification sheet and table below for wiring guide.  
 
 | Sensor Connector Pin | Symbol | Recommended Voltage | Description | RPi Physical Pin | RPi I/O |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -23,15 +17,11 @@ Please refer to sensor specification sheet and table below for wiring guide.
 | Pin 3 | SCL | 3.3V | I2C Clock | Pin 5 | GPIO3 (I2C1 SCL) |
 | Pin 4 | GND | 0V | Ground | Pin 6 | Ground |
 | Pin 5 | VDD | 5V | Power supply | Pin 4 | 5v Power |
-<br>
 
-More details about Raspberry Pi pinout<br>
-<https://pinout.xyz/><br>
-<br>
+More details about Raspberry Pi pinout  
+<https://pinout.xyz/>  
 
-
-### **Examples**
-<br>
+## **Examples**
 
 ```python
 from time import sleep
@@ -72,19 +62,15 @@ while True:
     '''
     sleep(5)
 ```
-<br>
 
-### **Dependencies and Installation Instructions**
-<br>
+## **Dependencies and Installation Instructions**
 
-* `smbus`<br>
-    ```
-    pip install smbus
-    ```
-<br>
-<br>
+`smbus`
 
-### **Limitation**
-<br>
+```none
+pip install smbus
+```
 
-This driver only works using **I2C** protocol
+## **Limitation**
+
+Currently, this driver only supports **I2C** protocol
