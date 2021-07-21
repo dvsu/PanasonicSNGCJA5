@@ -49,25 +49,28 @@ while True:
     print(result)
     '''
     Structure of result
-
     {
-        "mass_density" : {
-            "pm1.0": xx.xx,
-            "pm2.5": xx.xx,
-            "pm10": xx.xx,
+        "sensor_data": {
+            "mass_density": {
+                "pm1.0": xx.xx,
+                "pm2.5": xx.xx,
+                "pm10": xx.xx
+            },
+            "particle_count": {
+                "pm0.5": xx.xx, 
+                "pm1.0": xx.xx, 
+                "pm2.5": xx.xx,
+                "pm5.0": xx.xx, 
+                "pm7.5": xx.xx, 
+                "pm10": xx.xx
+            },
+            "mass_density_unit": "ug/m3",
+            "particle_count_unit": "none" 
         },
-        "particle_count" : {
-            "pm0.5": xx.xx, 
-            "pm1.0": xx.xx, 
-            "pm2.5": xx.xx,
-            "pm5.0": xx.xx, 
-            "pm7.5": xx.xx, 
-            "pm10": xx.xx
-        }
-    }
+        "timestamp": <int> # seconds since the Unix epoch 
     '''
 
-    sleep(1)
+    sleep(5)
 
 ```
 <br>
