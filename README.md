@@ -52,26 +52,25 @@ while True:
     {
         "sensor_data": {
             "mass_density": {
-                "pm1.0": xx.xx,
-                "pm2.5": xx.xx,
-                "pm10": xx.xx
+                "pm1.0": <float>,
+                "pm2.5": <float>,
+                "pm10": <float>
             },
             "particle_count": {
-                "pm0.5": xx.xx, 
-                "pm1.0": xx.xx, 
-                "pm2.5": xx.xx,
-                "pm5.0": xx.xx, 
-                "pm7.5": xx.xx, 
-                "pm10": xx.xx
+                "pm0.5": <float>, 
+                "pm1.0": <float>, 
+                "pm2.5": <float>,
+                "pm5.0": <float>, 
+                "pm7.5": <float>, 
+                "pm10": <float>
             },
             "mass_density_unit": "ug/m3",
             "particle_count_unit": "none" 
         },
-        "timestamp": <int> # seconds since the Unix epoch 
+        "timestamp": <int> # seconds since the Unix epoch
+    }
     '''
-
     sleep(5)
-
 ```
 <br>
 
