@@ -1,4 +1,3 @@
-import os
 import sys
 import logging
 import threading
@@ -118,11 +117,12 @@ class SNGCJA5:
             except OSError as e:
                 if self.logger:
                     self.logger.warning(f"{type(e).__name__}: {e}")
-                    self.logger.warning("Sensor is not detected on I2C bus. Terminating and rebooting...")
+                    self.logger.warning("Sensor is not detected on I2C bus. Terminating...")
                 else:
                     print(f"{type(e).__name__}: {e}")
-                    print("Sensor is not detected on I2C bus. Terminating and rebooting...")
-                os.system("sudo reboot")
+                    print("Sensor is not detected on I2C bus. Terminating...")
+
+                sys.exit(1)
 
             except Exception as e:
                 if self.logger:
