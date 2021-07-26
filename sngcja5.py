@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 import threading
@@ -58,7 +59,11 @@ class SNGCJA5:
         if logger:
             self.logger = logging.getLogger(logger)
         self.i2c_address = 0x33
-        self.i2c_bus = smbus.SMBus(i2c_bus_no)
+        try:
+            self.i2c_bus = smbus.SMBus(i2c_bus_no)
+        except OSError as e:
+            print("OSError")
+            print(e)
         self.__mass_density_addresses = {pm_type: MASS_DENSITY_BLOCK_SIZE*order 
                                             for order, pm_type in enumerate(MASS_DENSITY_PM_TYPES)}
 
@@ -106,9 +111,18 @@ class SNGCJA5:
                     },
                     "timestamp": int(datetime.now().timestamp())
                 })
-            
+
             except KeyboardInterrupt:
                 sys.exit()
+
+            except OSError as e:
+                if self.logger:
+                    self.logger.warning(f"{type(e).__name__}: {e}")
+                    self.logger.warning("Sensor is not detected on I2C bus. Terminating and rebooting...")
+                else:
+                    print(f"{type(e).__name__}: {e}")
+                    print("Sensor is not detected on I2C bus. Terminating and rebooting...")
+                os.system("sudo reboot")
 
             except Exception as e:
                 if self.logger:
